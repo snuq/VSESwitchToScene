@@ -27,8 +27,8 @@ bl_info = {
     "version": (0, 9, 0),
     "blender": (2, 80, 0),
     "location": "Sequencer Panel; Sequencer, 3D View, Compositor headers; Sequencer TAB, Shift-TAB Shortcuts",
-    "wiki_url": "https://github.com/snuq/VSESTS",
-    "tracker_url": "https://github.com/snuq/VSESTS/issues",
+    "wiki_url": "https://github.com/snuq/VSESwitchToScene",
+    "tracker_url": "https://github.com/snuq/VSESwitchToScene/issues",
     "category": "Sequencer"
 }
 
