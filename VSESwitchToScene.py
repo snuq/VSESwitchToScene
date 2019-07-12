@@ -36,7 +36,7 @@ bl_info = {
 def get_active(context):
     sequencer = context.scene.sequence_editor
     if sequencer:
-        active = sequencer.active
+        active = sequencer.active_strip
         if active:
             return active
     return None
