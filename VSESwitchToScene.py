@@ -33,6 +33,15 @@ bl_info = {
 }
 
 
+def get_active(context):
+    sequencer = context.scene.sequence_editor
+    if sequencer:
+        active = sequencer.active
+        if active:
+            return active
+    return None
+
+
 def draw_switch_to_header(self, context):
     layout = self.layout
     scene_name = context.scene.vsests.scene
@@ -70,8 +79,8 @@ class VSESTSSwitchTo(bpy.types.Operator):
     bl_description = 'Switch To Scene'
 
     def execute(self, context):
-        active = context.scene.sequence_editor.active_strip
-        if active.type != 'SCENE':
+        active = get_active(context)
+        if active and active.type != 'SCENE':
             return {'CANCELLED'}
         scene = active.scene
         if context.scene.vsests.workspace in bpy.data.workspaces:
@@ -112,7 +121,7 @@ class VSESTS_PT_VSEPanel(bpy.types.Panel):
 
     @classmethod
     def poll(cls, context):
-        active = context.scene.sequence_editor.active_strip
+        active = get_active(context)
         if active and active.type == 'SCENE':
             return True
         return False
