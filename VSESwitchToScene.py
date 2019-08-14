@@ -73,6 +73,20 @@ class VSESTSWorkspaceSet(bpy.types.Operator):
         return {'CANCELLED'}
 
 
+class VSESTSSwitch(bpy.types.Operator):
+    bl_idname = 'vsests.switch'
+    bl_label = 'Switch To Scene'
+    bl_description = 'Switch To Scene'
+
+    def execute(self, context):
+        scene_name = context.scene.vsests.scene
+        if scene_name and scene_name in bpy.data.scenes:
+            bpy.ops.vsests.switch_back()
+        else:
+            bpy.ops.vsests.switch_to()
+        return {'FINISHED'}
+
+
 class VSESTSSwitchTo(bpy.types.Operator):
     bl_idname = 'vsests.switch_to'
     bl_label = 'Switch To Scene'
@@ -144,7 +158,8 @@ class VSESTSSettings(bpy.types.PropertyGroup):
         default='')
 
 
-classes = [VSESTSSwitchTo, VSESTSSwitchBack, VSESTS_PT_VSEPanel, VSESTSWorkspaceSet, VSESTSWorkspaceMenu, VSESTSSettings]
+classes = [VSESTSSwitchTo, VSESTSSwitchBack, VSESTS_PT_VSEPanel, VSESTSWorkspaceSet, VSESTSWorkspaceMenu,
+           VSESTSSettings, VSESTSSwitch]
 
 
 def register():
@@ -163,8 +178,7 @@ def register():
     #Register shortcut
     keymap = bpy.context.window_manager.keyconfigs.addon.keymaps.new(name='Sequencer', space_type='SEQUENCE_EDITOR', region_type='WINDOW')
     keymapitems = keymap.keymap_items
-    keymapitems.new('vsests.switch_to', 'TAB', 'PRESS')
-    keymapitems.new('vsests.switch_back', 'TAB', 'PRESS', shift=True)
+    keymapitems.new('vsests.switch', 'TAB', 'PRESS', shift=True)
 
 
 def unregister():
