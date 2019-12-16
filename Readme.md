@@ -39,11 +39,8 @@ The button will be called 'Switch Back To: "Scene Name"'.
 
 
 ## Shortcuts
-* __Tab Key__
 
-    When a scene strip is active, this will activate the 'Switch-To' function.
-
-* __Shift-Tab__
-
+* __Shift-Tab__  
+    When a scene strip is active, this will activate the 'Switch-To' function.  
     In the VSE, after switching to a scene, this will activate the 'Switch-Back' function.
 

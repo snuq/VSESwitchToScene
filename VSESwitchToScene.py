@@ -26,7 +26,7 @@ bl_info = {
     "author": "Hudson Barkley (Snu/snuq/Aritodo)",
     "version": (0, 9, 0),
     "blender": (2, 80, 0),
-    "location": "Sequencer Panel; Sequencer, 3D View, Compositor headers; Sequencer TAB, Shift-TAB Shortcuts",
+    "location": "Sequencer Panel; Sequencer, 3D View, Compositor headers; Sequencer Shift-TAB Shortcut",
     "wiki_url": "https://github.com/snuq/VSESwitchToScene",
     "tracker_url": "https://github.com/snuq/VSESwitchToScene/issues",
     "category": "Sequencer"
